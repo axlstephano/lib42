@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: axcastil <axcastil@student.42.fr>          +#+  +:+       +#+         #
+#    By: axcastil <axcastil@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/26 19:47:07 by axcastil          #+#    #+#              #
-#    Updated: 2023/12/27 18:50:58 by axcastil         ###   ########.fr        #
+#    Updated: 2024/06/15 17:22:13 by axcastil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS		=	$(shell find . -name "*.c")
 OBJS		=	$(SRCS:.c=.o)
 
-NAME 		= 	42collection.a
+NAME 		= 	42collection
 
 CC			=	gcc
 CFLAGS		=	-Wall -Wextra -Werror

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axcastil <axcastil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: axcastil <axcastil@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 13:13:13 by axcastil          #+#    #+#             */
-/*   Updated: 2023/10/17 12:03:46 by axcastil         ###   ########.fr       */
+/*   Updated: 2024/06/15 17:20:51 by axcastil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <string.h>
 # include <stdlib.h>
 # include <stdio.h>
+# include <stdint.h>
 
 typedef struct s_list
 {

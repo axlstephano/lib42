@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axcastil <axcastil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: axcastil <axcastil@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 16:28:21 by axcastil          #+#    #+#             */
-/*   Updated: 2023/10/11 17:55:28 by axcastil         ###   ########.fr       */
+/*   Updated: 2024/06/15 17:21:32 by axcastil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	long int	i;
-
-	i = n;
 	if (n == -2147483648)
 	{
 		ft_putstr_fd("-2147483648", fd);

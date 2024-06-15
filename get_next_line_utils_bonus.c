@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axcastil <axcastil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: axcastil <axcastil@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 20:25:39 by axcastil          #+#    #+#             */
-/*   Updated: 2023/12/27 19:37:16 by axcastil         ###   ########.fr       */
+/*   Updated: 2024/06/15 19:01:59 by axcastil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin_gnl(char const *s1, char const *s2)
 {
 	size_t	a;
 	size_t	b;
@@ -21,8 +21,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	if (!s1 || !s2)
 		return (NULL);
-	a = ft_strlen(s1);
-	b = ft_strlen(s2);
+	a = ft_strlen_gnl(s1);
+	b = ft_strlen_gnl(s2);
 	str = malloc(a + b + 1);
 	if (!str)
 		return (NULL);
@@ -40,7 +40,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (str);
 }
 
-size_t	ft_strlen(const char *str)
+size_t	ft_strlen_gnl(const char *str)
 {
 	size_t	i;
 
@@ -52,7 +52,7 @@ size_t	ft_strlen(const char *str)
 	return (i);
 }
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strchr_gnl(const char *s, int c)
 {
 	if (s)
 	{
@@ -68,33 +68,33 @@ char	*ft_strchr(const char *s, int c)
 	return (NULL);
 }
 
-char	*ft_substr(const char *s, unsigned int start, size_t len)
+char	*ft_substr_gnl(const char *s, unsigned int start, size_t len)
 {
 	char	*new_str;
 	size_t	i;
 	size_t	j;
 
 	new_str = NULL;
-	if (!*s || ft_strlen(s) <= start)
+	if (!*s || ft_strlen_gnl(s) <= start)
 	{
 		new_str = malloc(1);
 		new_str[0] = '\0';
 		return (new_str);
 	}
-	if (ft_strlen(s + start) <= len)
-		len = ft_strlen(s + start);
+	if (ft_strlen_gnl(s + start) <= len)
+		len = ft_strlen_gnl(s + start);
 	new_str = (char *)malloc(len + 1);
 	if (!new_str)
 		return (NULL);
 	i = start;
 	j = 0;
-	while (i < ft_strlen(s) && j < len)
+	while (i < ft_strlen_gnl(s) && j < len)
 		new_str[j++] = s[i++];
 	new_str[j] = '\0';
 	return (new_str);
 }
 
-void	*ft_calloc(size_t count, size_t size)
+void	*ft_calloc_gnl(size_t count, size_t size)
 {
 	char	*string;
 	int		i;

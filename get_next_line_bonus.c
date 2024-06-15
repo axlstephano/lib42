@@ -3,25 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axcastil <axcastil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: axcastil <axcastil@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 20:20:54 by axcastil          #+#    #+#             */
-/*   Updated: 2023/12/27 19:37:51 by axcastil         ###   ########.fr       */
+/*   Updated: 2024/06/15 19:08:32 by axcastil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
 
-char	*joinandfree(char *result, char *buffer)
+static char	*joinandfree(char *result, char *buffer)
 {
 	char	*line;
 
-	line = ft_strjoin(result, buffer);
+	line = ft_strjoin_gnl(result, buffer);
 	free(result);
 	return (line);
 }
 
-char	*next_line(char	*buffer)
+static char	*next_line(char	*buffer)
 {
 	char	*next;
 	int		i;
@@ -35,7 +35,7 @@ char	*next_line(char	*buffer)
 		free(buffer);
 		return (NULL);
 	}
-	next = ft_calloc((ft_strlen(buffer) - i + 1), sizeof(char));
+	next = ft_calloc_gnl((ft_strlen_gnl(buffer) - i + 1), sizeof(char));
 	i ++;
 	j = 0;
 	while (buffer[i])
@@ -45,7 +45,7 @@ char	*next_line(char	*buffer)
 	return (next);
 }
 
-char	*liner(char	*buffer)
+static char	*liner(char	*buffer)
 {
 	char	*new_line;
 	int		len;
@@ -56,18 +56,18 @@ char	*liner(char	*buffer)
 	while (buffer[len] != '\n' && buffer[len] != '\0')
 		len ++;
 	len ++;
-	new_line = ft_substr(buffer, 0, len);
+	new_line = ft_substr_gnl(buffer, 0, len);
 	return (new_line);
 }
 
-char	*reader(int fd, char *result)
+static char	*reader(int fd, char *result)
 {
 	int		byte_read;
 	char	*buffer;
 
 	if (!result)
-		result = ft_calloc(1, sizeof(char));
-	buffer = ft_calloc((BUFFER_SIZE + 1), sizeof(char));
+		result = ft_calloc_gnl(1, sizeof(char));
+	buffer = ft_calloc_gnl((BUFFER_SIZE + 1), sizeof(char));
 	byte_read = 1;
 	while (byte_read > 0)
 	{
@@ -76,14 +76,14 @@ char	*reader(int fd, char *result)
 			return (free(buffer), NULL);
 		buffer[byte_read] = 0;
 		result = joinandfree(result, buffer);
-		if (ft_strchr(buffer, '\n'))
+		if (ft_strchr_gnl(buffer, '\n'))
 			break ;
 	}
 	free(buffer);
 	return (result);
 }
 
-char	*get_next_line(int fd)
+char	*get_next_line_gnl(int fd)
 {
 	static char	*result[1024];
 	char		*new_line;

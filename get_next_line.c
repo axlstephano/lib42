@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axcastil <axcastil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: axcastil <axcastil@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 19:23:09 by axcastil          #+#    #+#             */
-/*   Updated: 2023/12/30 18:27:23 by axcastil         ###   ########.fr       */
+/*   Updated: 2024/06/15 19:06:19 by axcastil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*joinandfree(char *result, char *buffer)
 {
 	char	*line;
 
-	line = ft_strjoin(result, buffer);
+	line = ft_strjoin_g(result, buffer);
 	free(result);
 	return (line);
 }
@@ -42,7 +42,7 @@ char	*next_line(char	*buffer)
 		free(buffer);
 		return (NULL);
 	}
-	next = ft_calloc((ft_strlen(buffer) - i + 1), sizeof(char));
+	next = ft_calloc_g((ft_strlen_g(buffer) - i + 1), sizeof(char));
 	i ++;
 	j = 0;
 	while (buffer[i])
@@ -66,7 +66,7 @@ char	*liner(char	*buffer)
 	while (buffer[len] != '\n' && buffer[len] != '\0')
 		len ++;
 	len ++;
-	new_line = ft_substr(buffer, 0, len);
+	new_line = ft_substr_g(buffer, 0, len);
 	return (new_line);
 }
 
@@ -79,8 +79,8 @@ char	*reader(int fd, char *result)
 	char	*buffer;
 
 	if (!result)
-		result = ft_calloc(1, sizeof(char));
-	buffer = ft_calloc((BUFFER_SIZE + 1), sizeof(char));
+		result = ft_calloc_g(1, sizeof(char));
+	buffer = ft_calloc_g((BUFFER_SIZE + 1), sizeof(char));
 	if(!buffer)
 	{
 		free(result);
@@ -94,7 +94,7 @@ char	*reader(int fd, char *result)
 			return (free(buffer), NULL);
 		buffer[byte_read] = 0;
 		result = joinandfree(result, buffer);
-		if (ft_strchr(buffer, '\n'))
+		if (ft_strchr_g(buffer, '\n'))
 			break ;
 	}
 	free(buffer);

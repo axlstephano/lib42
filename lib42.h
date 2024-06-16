@@ -1,23 +1,16 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: axcastil <axcastil@student.42madrid.com    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/27 13:13:13 by axcastil          #+#    #+#             */
-/*   Updated: 2024/06/15 17:20:51 by axcastil         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#ifndef LIB42_H
+# define LIB42_H
 
-#ifndef LIBFT_H
-# define LIBFT_H
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 4
+# endif
 
 # include <unistd.h>
 # include <string.h>
 # include <stdlib.h>
-# include <stdio.h>
 # include <stdint.h>
+# include <stdio.h>
+# include <fcntl.h>
 
 typedef struct s_list
 {
@@ -68,5 +61,17 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+char	*get_next_line(int fd);
+char	*gnl_strjoin(char const *s1, char const *s2);
+size_t	gnl_strlen(const char *str);
+char	*gnl_strchr(const char *s, int c);
+char	*gnl_substr(const char *s, unsigned int start, size_t len);
+void	*gnl_calloc(size_t count, size_t size);
+char	*get_next_line_bonus(int fd);
+char	*gnlb_strjoin(char const *s1, char const *s2);
+size_t	gnlb_strlen(const char *str);
+char	*gnlb_strchr(const char *s, int c);
+char	*gnlb_substr(const char *s, unsigned int start, size_t len);
+void	*gnlb_calloc(size_t count, size_t size);
 
 #endif
